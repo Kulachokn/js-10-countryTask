@@ -22,7 +22,7 @@ function fetchCountries() {
   countryList.innerHTML = '';
   countryInfo.innerHTML = '';
 
-  if (searchQuery.length > 1) {
+  if (searchQuery.length > 0) {
     fetchCountriesApi(searchQuery)
       .then(countries => {
         console.log(countries);
@@ -46,12 +46,13 @@ function fetchCountries() {
 //     if (countries.length === 1) {
 //       countries[0].languages = Object.values(countries[0].languages).join(", ")
 //       markup = countryCard(countries[0]);
-//       return countryInfo.insertAdjacentHTML('beforeend', markup);
+//        countryInfo.insertAdjacentHTML('beforeend', markup);
 //     } else if (countries.length <= 10 || countries.length > 1) {
 //       markup = countryAll(countries);
-//       return countryList.insertAdjacentHTML('beforeend', markup);
+//        countryList.insertAdjacentHTML('beforeend', markup);
 //     }
 // }
+
 
 function countryTmp(countries) {
   return countries
@@ -79,9 +80,9 @@ function renderMarkupTmp(countries) {
   let markup = null;
   if (countries.length === 1) {
     markup = countryTmp(countries);
-    return countryInfo.insertAdjacentHTML('beforeend', markup);
+     countryInfo.insertAdjacentHTML('beforeend', markup);
   } else if (countries.length <= 10 || countries.length > 1) {
     markup = countriesListTmp(countries);
-    return countryList.insertAdjacentHTML('beforeend', markup);
+     countryList.insertAdjacentHTML('beforeend', markup);
   }
 }
